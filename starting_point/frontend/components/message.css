@@ -26,3 +26,38 @@
 .dot:nth-child(2) {
   animation-delay: -0.16s;
 }
+
+/* Markdown styles */
+.markdown-content a {
+  color: #2563eb; /* Blue color for links */
+  text-decoration: underline;
+  transition: color 0.2s ease;
+}
+
+.markdown-content a:hover {
+  color: #1d4ed8;
+}
+
+.markdown-content ul {
+  list-style-type: disc;
+  margin-left: 1.5rem;
+  margin-top: 0.5rem;
+  margin-bottom: 0.5rem;
+}
+
+.markdown-content li {
+  margin-bottom: 0.25rem;
+}
+
+.markdown-content strong {
+  font-weight: 600;
+}
+
+/* Dark theme adjustments */
+.dark-theme .markdown-content a {
+  color: #60a5fa;
+}
+
+.dark-theme .markdown-content a:hover {
+  color: #93c5fd;
+}

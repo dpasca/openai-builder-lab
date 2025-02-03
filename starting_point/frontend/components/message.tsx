@@ -17,9 +17,9 @@ const Message: React.FC<MessageProps> = ({ message, loading }) => {
             <div className="my-2 flex justify-end text-xs text-zinc-600 font-medium">
               Me
             </div>
-            <div className="ml-4 rounded-[18px] px-4 py-2 md:ml-24 bg-white text-zinc-900  font-light">
+            <div className="ml-4 rounded-[18px] px-4 py-2 md:ml-24 bg-white text-zinc-900 font-light">
               <div>
-                <div>
+                <div className="markdown-content">
                   <ReactMarkdown>{message.content as string}</ReactMarkdown>
                 </div>
               </div>
@@ -41,7 +41,9 @@ const Message: React.FC<MessageProps> = ({ message, loading }) => {
                     <span className="dot" />
                   </div>
                 ) : (
-                  <ReactMarkdown>{message.content as string}</ReactMarkdown>
+                  <div className="markdown-content dark-theme">
+                    <ReactMarkdown>{message.content as string}</ReactMarkdown>
+                  </div>
                 )}
               </div>
             </div>
