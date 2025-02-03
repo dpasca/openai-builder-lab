@@ -1,33 +1,15 @@
-import OpenAI from 'openai'
-import { MODEL } from '@/lib/constants'
-import { tools } from '@/lib/tools'
-
-const openai = new OpenAI({
-  apiKey: process.env.OPENAI_API_KEY
-})
+import { handleChat } from '@/lib/openai-pipeline'
 
 export async function POST(request: Request) {
   const { messages } = await request.json()
 
   console.log('Incoming messages', messages)
-  console.log('Available tools:', tools)
 
   try {
-    const completion = await openai.chat.completions.create({
-      model: MODEL,
-      messages: messages,
-      tools: tools,
-      tool_choice: 'auto',
-    })
-
-    const response = completion.choices[0].message
-
-    console.log('OpenAI response:', response)
-
+    const response = await handleChat(messages)
     return new Response(JSON.stringify({
-      role: response.role,
-      content: response.content,
-      tool_calls: response.tool_calls
+      role: 'assistant',
+      content: response
     }))
   } catch (error: any) {
     console.error('Error in POST handler:', error)
