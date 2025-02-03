@@ -7,10 +7,15 @@ export async function POST(request: Request) {
 
   try {
     const response = await handleChat(messages)
-    return new Response(JSON.stringify({
+    console.log('Assistant response (raw):', response)
+    
+    const responseObj = {
       role: 'assistant',
       content: response
-    }))
+    }
+    console.log('Final response object:', responseObj)
+    
+    return new Response(JSON.stringify(responseObj))
   } catch (error: any) {
     console.error('Error in POST handler:', error)
     const errorMessage = error.response?.data?.error?.message || error.message
