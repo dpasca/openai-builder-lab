@@ -14,7 +14,7 @@
 - [x] Test tool execution flow
 
 ## Challenge 2: Tools Integration
-- [ ] Implement SerpAPI integration via function call
+- [x] Implement SerpAPI integration via function call
 
 ## Challenge 3: [Next Challenge Name]
 - [ ] TBD based on challenge requirements

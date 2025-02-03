@@ -1,4 +1,3 @@
-import { SYSTEM_PROMPT } from './constants'
 import useConversationStore from '@/stores/useConversationStore'
 
 type MessageRole = 'user' | 'assistant' | 'system' | 'function'

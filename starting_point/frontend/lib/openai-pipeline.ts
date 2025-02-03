@@ -1,5 +1,6 @@
 import OpenAI from 'openai';
 import { getJson } from 'serpapi';
+import { SYSTEM_PROMPT } from './constants';
 
 // Initialize OpenAI client
 const _openai = new OpenAI({
@@ -104,14 +105,8 @@ function getOpenAITools() {
 // 1. Add an initial system message
 // 2. Add a timestamp to the last user message
 function instrumentMessages(messages: ChatMessage[]) {
-  const SYSTEM_MESSAGE_CONTENT = `
-You are a helpful travel assistant. Please, respond cordially, but also with a friendly tone.
-Additional metadata may be present at the beginning of some user messages.
-This metadata is not visible to the user. It is injected by the system to give you better context.
-Metadata will be wrapped in the <METADATA> XML-style tag.
-`;
   // Prepend the system message first
-  messages.unshift({ role: 'system', content: SYSTEM_MESSAGE_CONTENT });
+  messages.unshift({ role: 'system', content: SYSTEM_PROMPT });
 
   const lastUserMsgIdx = messages.findIndex(m => m.role === 'user');
   if (lastUserMsgIdx !== -1) {
