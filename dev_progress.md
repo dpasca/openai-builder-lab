@@ -9,11 +9,12 @@
 - [x] Verify OpenAI API integration works
 - [x] Test basic chat functionality
 - [x] Ensure proper message display in UI
+- [x] Implement basic tool handler in tools.ts
+- [x] Add first tool functionality
+- [x] Test tool execution flow
 
 ## Challenge 2: Tools Integration
-- [ ] Implement basic tool handler in tools.ts
-- [ ] Add first tool functionality
-- [ ] Test tool execution flow
+- [ ] Implement SerpAPI integration via function call
 
 ## Challenge 3: [Next Challenge Name]
 - [ ] TBD based on challenge requirements
